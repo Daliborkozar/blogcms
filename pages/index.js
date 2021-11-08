@@ -8,27 +8,24 @@ const posts = [
 
 export default function Home() {
   const postsList = () => {
-    return posts.map((post) => (
-      <div
-        key={post.id}
-        
-      >
-        {post.title}
-        {post.excerpt}
-      </div>
-    ));
+    return posts.map((post) => <PostCard post={post} />);
   };
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-10 mb-8" >
       <Head>
         <title>Blog CMS</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="grid gird-cols-1 lg:grid-cols-12 gap-12 bg-gray-300">{postsList()}</div>
-      <div className="lg:col-span-4 col-span-1">
-        <div className="lg:sticky relative top-8">
+      <div className="grid gird-cols-1 lg:grid-cols-12 gap-12">
+        <div className='lg:col-span-12 col-span-1'>dada</div>
+        <div className="lg:col-span-8 col-span-1">{postsList()}</div>
 
+        <div className="lg:col-span-4 col-span-1">
+          <div className="lg:sticky relative top-8">
+            <PostWidget />
+            <Categories />
+          </div>
         </div>
       </div>
     </div>
